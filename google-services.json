@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "3494686511",
+    "firebase_url": "https://sogatree.firebaseio.com",
+    "project_id": "sogatree",
+    "storage_bucket": "sogatree.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:3494686511:android:530d7812a8754089e57bda",
+        "android_client_info": {
+          "package_name": "com.MujtabaKamal.SogatreeApp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "3494686511-e0iooe87lj0mcg17ds7hvnku5kemvrks.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRcsaMZ4FT37YP28y-4vwmErC5Ge9Xz8g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "3494686511-e0iooe87lj0mcg17ds7hvnku5kemvrks.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

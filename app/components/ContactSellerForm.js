@@ -22,6 +22,7 @@ function ContactSellerForm({ listing }) {
     Notifications.presentLocalNotificationAsync({
       title: "رائع!",
       body: "تم ارسال رسالتك بنجاح.",
+      android: { channelId: "default" },
     });
   };
 

@@ -22,7 +22,8 @@
     },
     "android": {
       "package": "com.MujtabaKamal.SogatreeApp",
-      "versionCode": 1
+      "versionCode": 1,
+      "googleServicesFile": "./google-services.json"
     },
     "description": "A marketplace for selling the stuff you don't need anymore.",
     "notification": {
