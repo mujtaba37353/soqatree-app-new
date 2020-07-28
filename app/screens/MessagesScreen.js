@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FlatList, StyleSheet, View } from "react-native";
 
 import Screen from "../components/Screen";
@@ -8,19 +8,19 @@ import {
   ListItemSeparator,
 } from "../components/lists";
 
-const initialMessages = [
-  {
-    id: 1,
-    title: "Ali alwatree",
-    description: "المنتجات",
-    image: require("../assets/Ali.jpg"),
-  },
-];
+import messagesApi from "../api/messages";
 
 function MessagesScreen(props) {
-  const [messages, setMessages] = useState(initialMessages);
+  const [messages, setMessages] = useState([]);
   const [refreshing, setRefreshing] = useState(false);
-
+  // const getMessagesApi = useApi(messagesApi.getMessages);
+  useEffect(() => {
+    async function fetchData() {
+      const response = await messagesApi.getMessages();
+      setMessages(response.data);
+    }
+    fetchData();
+  }, []);
   const handleDelete = (message) => {
     // Delete the message from messages
     setMessages(messages.filter((m) => m.id !== message.id));
@@ -33,8 +33,8 @@ function MessagesScreen(props) {
         keyExtractor={(message) => message.id.toString()}
         renderItem={({ item }) => (
           <ListItem
-            title={item.title}
-            subTitle={item.description}
+            title={item.fromUser && item.fromUser.name}
+            subTitle={item.content}
             image={item.image}
             onPress={() => console.log("Message selected", item)}
             renderRightActions={() => (
@@ -44,16 +44,7 @@ function MessagesScreen(props) {
         )}
         ItemSeparatorComponent={ListItemSeparator}
         refreshing={refreshing}
-        onRefresh={() => {
-          setMessages([
-            {
-              id: 2,
-              title: "T2",
-              description: "D2",
-              image: require("../assets/Ali.jpg"),
-            },
-          ]);
-        }}
+        onRefresh={() => setMessages(messages)}
       />
     </Screen>
   );
